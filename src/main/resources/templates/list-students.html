@@ -42,7 +42,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr th:each="student: ${students}">
+    <tr th:each="student: ${students}" th:class="${student.id} % 2 == 0 ? 'table-success' : ''">
       <td th:text="${student.surname}" />
       <td th:text="${student.name}" />
       <td th:text="${student.faculty}" />

@@ -1,6 +1,8 @@
 package rasskazov.laba.springwebservice.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import rasskazov.laba.springwebservice.Dto.UserDto;
 import rasskazov.laba.springwebservice.Entity.User;
+import rasskazov.laba.springwebservice.Service.LogService;
 import rasskazov.laba.springwebservice.Service.UserService;
 
 import javax.validation.Valid;
@@ -19,11 +22,13 @@ import java.util.List;
 public class SecurityController
 {
     private final UserService userService;
+    private final LogService logService;
 
     @Autowired
-    public SecurityController(@NotNull  UserService userService)
+    public SecurityController(@NotNull  UserService userService, @NotNull LogService logService)
     {
         this.userService = userService;
+        this.logService = logService;
     }
 
     @GetMapping("/intex")
@@ -61,6 +66,8 @@ public class SecurityController
         }
 
         userService.saveUser(userDto);
+
+        logService.info("Register new user " + userDto.getEmail());
 
         return "redirect:/register?success";
     }
