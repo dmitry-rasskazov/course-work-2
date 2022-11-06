@@ -43,7 +43,6 @@ public class StudentController
     @GetMapping("/addStudentForm")
     public ModelAndView addStudentForm()
     {
-
         logService.info("Add student form as " + currentUserName());
 
         ModelAndView model = new ModelAndView("add-student-form");

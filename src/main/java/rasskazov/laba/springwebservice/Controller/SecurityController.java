@@ -31,7 +31,7 @@ public class SecurityController
         this.logService = logService;
     }
 
-    @GetMapping("/intex")
+    @GetMapping("/index")
     public String home()
     {
         return "index";
