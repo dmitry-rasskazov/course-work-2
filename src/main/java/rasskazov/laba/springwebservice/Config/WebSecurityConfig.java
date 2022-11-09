@@ -22,17 +22,17 @@ public class WebSecurityConfig {
                 .antMatchers("/register/**").permitAll()
                 .antMatchers("/index").permitAll()
                 .antMatchers("/users").hasRole("ADMIN")
-                .antMatchers("/list").hasRole("ADMIN")
-                .antMatchers("/addStudentForm").hasRole("ADMIN")
-                .antMatchers("/saveStudent").hasRole("ADMIN")
+                .antMatchers("/list").permitAll()
+                .antMatchers("/addProductForm").hasRole("ADMIN")
+                .antMatchers("/saveProduct").hasRole("ADMIN")
                 .antMatchers("/showUpdateForm").hasRole("ADMIN")
-                .antMatchers("/deleteStudent").hasRole("ADMIN")
+                .antMatchers("/deleteProduct").hasRole("ADMIN")
                 .and()
                 .formLogin(
                         (form) -> form
                                 .loginPage("/login")
                                 .loginProcessingUrl("/login")
-                                .defaultSuccessUrl("/users")
+                                .defaultSuccessUrl("/list")
                                 .permitAll()
                 )
                 .logout(

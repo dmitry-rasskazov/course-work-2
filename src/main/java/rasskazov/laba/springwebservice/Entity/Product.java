@@ -12,8 +12,8 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "students")
-public class Student {
+@Table(name = "products")
+public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -22,12 +22,12 @@ public class Student {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "surname")
-    private String surname;
+    @Column(name = "description")
+    private String description;
 
-    @Column(name = "faculty")
-    private String faculty;
+    @Column(name = "category")
+    private String category;
 
-    @Column(name = "age")
-    private Integer age;
+    @Column(name = "price")
+    private Integer price;
 }
