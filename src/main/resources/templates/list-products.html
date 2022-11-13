@@ -19,13 +19,10 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" th:href="@{/logout}">Logout</a>
+          <a class="nav-link active" aria-current="page" th:href="@{/logout}">Выйти</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" th:href="@{/register}">Register</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" th:href="@{/list}">Products</a>
+          <a class="nav-link active" aria-current="page" th:href="@{/users}">Пользователи</a>
         </li>
       </ul>
     </div>
@@ -33,15 +30,15 @@
 </nav>
 <div class="container">
   <hr/>
-  <a th:href="@{/addProductForm}" class="btn btn-primary">Add Product</a>
+  <a th:href="@{/addProductForm}" class="btn btn-primary">Добавить продукт</a>
   <br/><br/>
   <table class="table table-bordered table-striped" id="productTable">
     <thead>
     <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Category</th>
-      <th>Price</th>
+      <th>Название</th>
+      <th>Описание</th>
+      <th>Категория</th>
+      <th>Цена</th>
     </tr>
     </thead>
     <tbody>
@@ -51,8 +48,8 @@
       <td th:text="${product.category}" />
       <td th:text="${product.price}" />
       <td>
-        <a th:href="@{/showUpdateForm(productId=${product.id})}" class="btn btn-info">Update</a>
-        <a th:href="@{/deleteProduct(productId=${product.id})}" class="btn btn-danger ml-2">Delete</a>
+        <a th:href="@{/showUpdateForm(productId=${product.id})}" class="btn btn-info">Изменить</a>
+        <a th:href="@{/deleteProduct(productId=${product.id})}" class="btn btn-danger ml-2">Удалить</a>
       </td>
     </tr>
     </tbody>
@@ -64,6 +61,7 @@
   $(document).ready(function() {
     $("#productTable").DataTable({
       'aoColumnDefs': [{
+        'dataTablesEmpty': 'Нет доступных для просмотра продуктов',
         'bSortable': false,
         'aTargets': [-1]
       }]

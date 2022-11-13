@@ -19,14 +19,14 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" th:href="@{/logout}">Logout</a>
+                        <a class="nav-link active" aria-current="page" th:href="@{/logout}">Выйти</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page"
-                           th:href="@{/register}">Register</a>
+                           th:href="@{/register}">Зарегистрироваться</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" th:href="@{/list}">Products</a>
+                        <a class="nav-link active" aria-current="page" th:href="@{/list}">Продукты</a>
                     </li>
                 </ul>
             </div>
@@ -34,20 +34,20 @@
     </nav>
     <div class="container">
         <hr/>
-        <h3>Add New Product</h3>
+        <h3>Добавить новый продукт</h3>
         <hr/>
         <form th:action="@{/saveProduct}" th:object="${product}" method="POST">
-            <input type="text" th:field="*{name}" class="form-control col-4 mb-4" placeholder="Enter Name"/>
+            <input type="text" th:field="*{name}" class="form-control col-4 mb-4" placeholder="Введите название"/>
             <input type="text" th:field="*{description}" class="form-control col-4 mb-4"
-                   placeholder="Enter Description"/>
+                   placeholder="Введите описание"/>
             <input type="text" th:field="*{category}" class="form-control col-4 mb-4"
-                   placeholder="Enter Category"/>
+                   placeholder="Введите категорию"/>
             <input type="text" th:field="*{price}" class="form-control col-4 mb-4" placeholder="Enter Price"/>
-            <button type="submit" class="btn btn-primary col-2">Save</button>
+            <button type="submit" class="btn btn-primary col-2">Сохранить</button>
             <input type="hidden" th:field="*{id}"/>
         </form>
         <hr/>
-        <a th:href="@{/list}">Back to list</a>
+        <a th:href="@{/list}">Вернуться к списку</a>
     </div>
 </body>
 </html>
