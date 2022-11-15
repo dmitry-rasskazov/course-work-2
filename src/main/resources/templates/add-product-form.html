@@ -22,10 +22,6 @@
                         <a class="nav-link active" aria-current="page" th:href="@{/logout}">Выйти</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page"
-                           th:href="@{/register}">Зарегистрироваться</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link active" aria-current="page" th:href="@{/list}">Продукты</a>
                     </li>
                 </ul>
@@ -42,7 +38,7 @@
                    placeholder="Введите описание"/>
             <input type="text" th:field="*{category}" class="form-control col-4 mb-4"
                    placeholder="Введите категорию"/>
-            <input type="text" th:field="*{price}" class="form-control col-4 mb-4" placeholder="Enter Price"/>
+            <input type="text" th:field="*{price}" class="form-control col-4 mb-4" placeholder="Введите цену"/>
             <button type="submit" class="btn btn-primary col-2">Сохранить</button>
             <input type="hidden" th:field="*{id}"/>
         </form>
